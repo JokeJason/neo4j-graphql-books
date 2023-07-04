@@ -1,10 +1,11 @@
 import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone';
 import { Neo4jGraphQL } from '@neo4j/graphql';
+import { gql } from 'graphql-tag';
 import neo4j from 'neo4j-driver';
 import 'dotenv/config';
 
-const typeDefs = `
+const typeDefs = gql`
   type Book {
     title: String
     author: String
