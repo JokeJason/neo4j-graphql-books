@@ -21,6 +21,8 @@ const newSchema = new Neo4jGraphQL({
   driver,
 });
 
-export const newServer = new ApolloServer({
-  schema: await newSchema.getSchema(),
-});
+export async function createServer() {
+  return new ApolloServer({
+    schema: await newSchema.getSchema(),
+  });
+}

@@ -1,5 +1,7 @@
-import { newServer } from './newServer.js';
+import { createServer } from './newServer.js';
 import { startStandaloneServer } from '@apollo/server/standalone';
+
+const newServer = await createServer();
 
 const { url } = await startStandaloneServer(newServer, {
   context: async ({ req }) => ({ req }),
