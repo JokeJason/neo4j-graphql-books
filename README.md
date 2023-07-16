@@ -13,6 +13,8 @@ Apollo Server is a powerful GraphQL server that can be used with many different 
 
 Developer just need specify datatype and relationship in GraphQL schema, and Neo4j GraphQL library will generate the resolvers automatically for you. It greatly reduce boilerplate code.
 
+Another benefit of Neo4j + Apollo Server is that there is no need to write unit test for many low level web framework functionality, as they are all handled gracefully by these libraries. And our most focus is on integration tests (i.e. whether schema generated `typeDef` behave correctly)
+
 But there is not much information about how to write integration tests for Apollo Server with Neo4j GraphQL library. This project demonstrate how to write integration tests using Apollo Server's [`executeOperation` function](https://www.apollographql.com/docs/apollo-server/testing/testing/).
 
 ## Getting Started
