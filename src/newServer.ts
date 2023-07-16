@@ -1,15 +1,9 @@
 import { ApolloServer } from '@apollo/server';
 import { Neo4jGraphQL } from '@neo4j/graphql';
-import { gql } from 'graphql-tag';
 import neo4j from 'neo4j-driver';
 import 'dotenv/config';
 
-const typeDefs = gql`
-  type Book {
-    title: String
-    author: String
-  }
-`;
+import { typeDefs } from './typeDefs.js';
 
 const driver = neo4j.driver(
   process.env.DB_URI,
