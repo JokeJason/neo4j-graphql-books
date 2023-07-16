@@ -30,6 +30,7 @@
     "build:release": "npm run clean && tsc -p tsconfig.release.json",
     "lint": "eslint . --ext .ts --ext .mts",
     "test": "jest --coverage",
+    "test-containers": "docker-compose up --exit-code-from app",
     "prettier": "prettier --config .prettierrc --write .",
     "test:watch": "jest --watch"
   },

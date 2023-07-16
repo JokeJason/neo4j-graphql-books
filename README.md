@@ -19,6 +19,11 @@ But there is not much information about how to write integration tests for Apoll
 
 ## Getting Started
 
+Pre-requisite
+
+1. Installed neo4j database
+2. Created a database named `neo4j-graphql-books` and start the database
+
 Run the project following step
 
 1. Switch node version by `nvm use`
@@ -28,6 +33,10 @@ Run the project following step
 Run test
 
 1. `npm run test`
+
+Run test in containers
+
+1. `npm run test-containers`
 
 ## References
 
