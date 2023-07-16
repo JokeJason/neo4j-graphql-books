@@ -1,6 +1,7 @@
 import assert = require('node:assert');
 
 import { createServer } from './newServer.js';
+import { CreateBooks, DeleteBooks, QueryBooks } from './queries.js';
 
 describe('Neo4j GraphQL integration tests', () => {
   let newServer;
@@ -10,23 +11,14 @@ describe('Neo4j GraphQL integration tests', () => {
 
     // clear database about books
     await newServer.executeOperation({
-      query: `mutation DeleteBooks {
-        deleteBooks {
-          nodesDeleted
-        }
-      }`,
+      query: DeleteBooks,
       variables: {},
     });
   });
 
   it('After initialization, there should be no data in the database', async () => {
     const response = await newServer.executeOperation({
-      query: `query {
-        books {
-          title
-          author
-        }
-      }`,
+      query: QueryBooks,
       variables: {},
     });
 
@@ -41,14 +33,7 @@ describe('Neo4j GraphQL integration tests', () => {
 
   it('Add books into database', async () => {
     const response = await newServer.executeOperation({
-      query: `mutation CreateBooks($input: [BookCreateInput!]!) {
-        createBooks(input: $input) {
-          books {
-            author
-            title
-          }
-        }
-      }`,
+      query: CreateBooks,
       variables: {
         input: [
           {
